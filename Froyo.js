@@ -1,41 +1,50 @@
 
-alert("Enter a list of comma-separated froyo flavors.!");
+// alert("Enter a list of comma-separated froyo flavors.!");
 
 
-function myFunction() {
-  let flavor = prompt("Enter a list of comma-separated froyo flavors.");
-  if (flavor != null) {
-    document.getElementById("fill").innerHTML =
-    "Flavors " + flavor + "! Ordered";
-  }
+
+  let flavor = prompt("Enter a list of comma-separated froyo flavors.","Vanilla,Strawberry,Coffee");
+  
+
+
+
+
+let flavorArr = flavor.split(",")
+
+ console.log(flavorArr) 
+let flavorObj = {}
+ flavorArr.forEach ((flavor) => {
+  flavorObj[flavor] = (flavorObj[flavor] || 0) + 1; 
+
+ })
+
+
+console.log(flavorObj)
+
+
+
+//Function option
+
+const populateObject = function(arr){
+  let returnObj = {}; 
+
+  arr.forEach((flavor) =>{
+
+  returnObj[flavor] = (returnObj[flavor] || 0) + 1; 
+
+  })
+  return returnObj; 
 }
 
-let text = "";
-const flavors = ["Vanilla", "Vanilla","Vanilla","Strawberry", "Coffee","Coffee"];
-flavors.forEach(myFunction);
-
-document.getElementById("fill").innerHTML = text;
- 
-function myFunction(item, index) {
-  text += index + ": " + item + "<br>"; 
-}
-
-console.log(flavors);
+populateObject(flavorArr)
 
 
+// const flavorObj = {
+//   "Vanilla": 1,
+//   "Strawberry": 1,
+//   "Coffee": 1
+// }
 
-
-
-
-// const flavors = {
-//     vanilla: true,
-//     coffee: true,
-//     strawberry: true,
-// };
-
-// console.log(Object.keys(flavor));
-
-// let flavor = 0;
-
-// for (let i=0; i< flavor)
-
+// someArr.forEach((flavor) =>{
+// do something to add the title as a key to the object and make its value go up by 1
+// })
